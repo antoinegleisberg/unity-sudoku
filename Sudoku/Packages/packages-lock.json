@@ -1,5 +1,17 @@
 {
   "dependencies": {
+    "com.antoinegleisberg.tools": {
+      "version": "file:C:/Users/antoi/Documents/Informatique/Projets/Unity/UnityPackages/Tools",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
+    "com.antoinegleisberg.types": {
+      "version": "file:C:/Users/antoi/Documents/Informatique/Projets/Unity/UnityPackages/Types",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.2d.animation": {
       "version": "7.0.10",
       "depth": 1,

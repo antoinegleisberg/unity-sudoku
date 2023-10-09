@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "com.antoinegleisberg.tools": "file:C:/Users/antoi/Documents/Informatique/Projets/Unity/UnityPackages/Tools",
+    "com.antoinegleisberg.types": "file:C:/Users/antoi/Documents/Informatique/Projets/Unity/UnityPackages/Types",
     "com.unity.collab-proxy": "2.0.1",
     "com.unity.feature.2d": "1.0.0",
     "com.unity.ide.rider": "3.0.18",
