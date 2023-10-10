@@ -1,6 +1,6 @@
 {
-    "name": "antoinegleisberg.Sudoku.GridGenerator",
-    "rootNamespace": "antoinegleisberg.Sudoku.GridGenerator",
+    "name": "antoinegleisberg.Sudoku.Generator",
+    "rootNamespace": "antoinegleisberg.Sudoku.Generator",
     "references": [
         "GUID:43e365aaef891904b8df65ad17d3678d"
     ],

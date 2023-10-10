@@ -256,6 +256,7 @@ Transform:
   - {fileID: 1145781716}
   - {fileID: 1865256212}
   - {fileID: 256400969}
+  - {fileID: 1810806550}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -270,7 +271,7 @@ GameObject:
   - component: {fileID: 256400969}
   - component: {fileID: 256400970}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: CustomEventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,6 +302,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1366e3fd98b04b64389d9bcfc4a62dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &350619616 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 813442340375080425, guid: aeba4d5c3f913ca4e9bfe3625f62aebe, type: 3}
+  m_PrefabInstance: {fileID: 1748398662}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33f821395121a143a4bcbb11a59824a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &520140917
@@ -1747,7 +1759,11 @@ PrefabInstance:
     - target: {fileID: 270468572718869749, guid: aeba4d5c3f913ca4e9bfe3625f62aebe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 256400968}
+      objectReference: {fileID: 350619616}
+    - target: {fileID: 270468572718869749, guid: aeba4d5c3f913ca4e9bfe3625f62aebe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClicked
+      objectReference: {fileID: 0}
     - target: {fileID: 329138593239099645, guid: aeba4d5c3f913ca4e9bfe3625f62aebe, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2227,6 +2243,14 @@ PrefabInstance:
     - target: {fileID: 1692549582366285723, guid: aeba4d5c3f913ca4e9bfe3625f62aebe, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913975336926089568, guid: aeba4d5c3f913ca4e9bfe3625f62aebe, type: 3}
+      propertyPath: _gridManager
+      value: 
+      objectReference: {fileID: 1810806551}
+    - target: {fileID: 1913975336926089568, guid: aeba4d5c3f913ca4e9bfe3625f62aebe, type: 3}
+      propertyPath: _gridInitializer
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2242405385990579577, guid: aeba4d5c3f913ca4e9bfe3625f62aebe, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5008,6 +5032,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764488707}
   m_CullTransparentMesh: 1
+--- !u!1 &1810806549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1810806550}
+  - component: {fileID: 1810806551}
+  m_Layer: 0
+  m_Name: SudokuManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1810806550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810806549}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 149106011}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1810806551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810806549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28137e26f1a2ac44e845160fbf604f88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gridUI: {fileID: 1748398667}
+  _sudokuGrid: {fileID: 1748398663}
 --- !u!1 &1865256211
 GameObject:
   m_ObjectHideFlags: 0
@@ -5053,8 +5123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gridUI: {fileID: 1748398667}
-  _selectedCell: {fileID: 0}
-  _highlightedCells: []
+  _gridManager: {fileID: 1810806551}
+  _gridSize: 9
 --- !u!1001 &1976693090
 PrefabInstance:
   m_ObjectHideFlags: 0
