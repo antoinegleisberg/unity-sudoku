@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 namespace antoinegleisberg.SudokuGame.SudokuGrid
 {
     internal static class SudokuGenerator

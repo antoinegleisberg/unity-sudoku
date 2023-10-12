@@ -1,10 +1,10 @@
 {
-    "name": "antoinegleisberg.Sudoku.Editor.Tests",
-    "rootNamespace": "antoinegleisberg.Sudoku.Editor.Tests",
+    "name": "antoinegleisberg.SudokuGame.Editor.Tests",
+    "rootNamespace": "antoinegleisberg.SudokuGame.Editor.Tests",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "antoinegleisberg.Sudoku.SudokuGrid"
+        "antoinegleisberg.SudokuGame.SudokuGrid"
     ],
     "includePlatforms": [
         "Editor"

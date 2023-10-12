@@ -1,28 +1,13 @@
-using NUnit.Framework;
 using antoinegleisberg.SudokuGame.SudokuGrid;
+using NUnit.Framework;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace antoinegleisberg.SudokuGame.Editor.Tests
 {
-    public class GridGenerationTests
+    public class SudokuSolverTests
     {
-        [Test]
-        public void TestEmptyGridGeneration()
-        {
-            int[,] emptyGrid = new int[9, 9];
-            
-            for (int i = 0; i < 9; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    emptyGrid[i, j] = 0;
-                }
-            }
-
-            int[,] generatedGrid = SudokuGenerator.GenerateEmpty();
-
-            Assert.AreEqual(generatedGrid, emptyGrid);
-        }
-
         [Test]
         public void TestSudokuSolver_1()
         {

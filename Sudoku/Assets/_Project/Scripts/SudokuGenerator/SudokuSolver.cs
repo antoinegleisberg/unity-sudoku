@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using antoinegleisberg.Tools;
 
+
 namespace antoinegleisberg.SudokuGame.SudokuGrid
 {
     internal static class SudokuSolver
@@ -17,15 +18,14 @@ namespace antoinegleisberg.SudokuGame.SudokuGrid
 
         private static bool Solve(int[,] grid, int row, int col, int blockWidth)
         {
-            int NROWS = grid.GetLength(0);
-            int NCOLS = grid.GetLength(1);
+            int SIZE = grid.GetLength(0);
 
-            if (row == NROWS)
+            if (row == SIZE)
             {
                 return true;
             }
 
-            if (col == NCOLS)
+            if (col == SIZE)
             {
                 return Solve(grid, row + 1, 0, blockWidth);
             }
@@ -35,7 +35,7 @@ namespace antoinegleisberg.SudokuGame.SudokuGrid
                 return Solve(grid, row, col + 1, blockWidth);
             }
             
-            List<int> possibleNumbers = Utilities.ShuffleList(PossibleNumbers(grid, row, col, blockWidth));
+            List<int> possibleNumbers = ListUtilities.Shuffle(SudokuUtilities.PossibleNumbers(grid, row, col, blockWidth));
 
             foreach (int number in possibleNumbers)
             {
@@ -70,7 +70,7 @@ namespace antoinegleisberg.SudokuGame.SudokuGrid
                 return CountSolutions(grid, row, col + 1, blockWidth);
             }
 
-            List<int> possibleNumbers = PossibleNumbers(grid, row, col, blockWidth);
+            List<int> possibleNumbers = SudokuUtilities.PossibleNumbers(grid, row, col, blockWidth);
 
             int result = 0;
 
@@ -83,43 +83,6 @@ namespace antoinegleisberg.SudokuGame.SudokuGrid
             grid[row, col] = 0;
 
             return result;
-        }
-
-        private static List<int> PossibleNumbers(int[,] grid, int row, int col, int blockWidth)
-        {
-            List<int> possibleNumbers = new List<int>();
-
-            int SIZE = grid.GetLength(0);
-            int BLOCK_WIDTH = blockWidth;
-            int BLOCK_HEIGHT = SIZE / BLOCK_WIDTH;
-            int N_ROWS = BLOCK_WIDTH;
-            int N_COLS = BLOCK_HEIGHT;
-
-            for (int i = 1; i <= SIZE; i++)
-            {
-                possibleNumbers.Add(i);
-            }
-
-            for (int i = 0; i < SIZE; i++)
-            {
-                possibleNumbers.Remove(grid[row, i]);
-                possibleNumbers.Remove(grid[i, col]);
-            }
-
-            int blockRow = row / BLOCK_HEIGHT;
-            int blockCol = col / BLOCK_WIDTH;
-
-            for (int i = 0; i < N_ROWS; i++)
-            {
-                int rowOffset = BLOCK_HEIGHT * blockRow + i;
-                for (int j = 0; j < N_COLS; j++)
-                {
-                    int colOffset = BLOCK_WIDTH * blockCol + j;
-                    possibleNumbers.Remove(grid[rowOffset, colOffset]);
-                }
-            }
-
-            return possibleNumbers;
         }
     }
 }
