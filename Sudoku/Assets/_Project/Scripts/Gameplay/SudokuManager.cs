@@ -1,9 +1,9 @@
-using antoinegleisberg.Sudoku.GridGenerator;
+using antoinegleisberg.SudokuGame.SudokuGrid;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace antoinegleisberg.Sudoku
+namespace antoinegleisberg.SudokuGame
 {
     public class SudokuManager : MonoBehaviour
     {
@@ -15,8 +15,7 @@ namespace antoinegleisberg.Sudoku
 
         private Cell _selectedCell;
 
-        private int[,] _currentGrid;
-        private int[,] _currentSolution;
+        private Sudoku _currentSudoku;
 
         public TextMeshProUGUI[,] TextGrid => _textGrid;
 
@@ -71,33 +70,20 @@ namespace antoinegleisberg.Sudoku
             EventSystem.Instance.OnNumberSelected -= OnNumberSelected;
         }
 
-        public void SetCurrentGrid(int[,] grid)
+        public void SetCurrentSudoku(Sudoku sudoku)
         {
-            _currentGrid = grid;
-
-            int gridSize = grid.GetLength(0);
-            _currentSolution = new int[gridSize, gridSize];
-            for (int row = 0; row < gridSize; row++)
-            {
-                for (int col = 0; col < gridSize; col++)
-                {
-                    _currentSolution[row, col] = grid[row, col];
-                }
-            }
-
-            GridUtilities.SolveGrid(_currentSolution);
-
-            _sudokuUI.FillGrid(grid);
+            _currentSudoku = sudoku;
+            _sudokuUI.FillGrid(sudoku.Grid);
         }
 
         private void OnNumberSelected(int number)
         {
             Vector2Int coords = CellCoordinates(_selectedCell);
 
-            if (_currentSolution[coords.x, coords.y] == number)
+            if (_currentSudoku.IsCorrect(coords, number))
             {
-                _currentGrid[coords.x, coords.y] = number;
-                _sudokuUI.FillGrid(_currentGrid);
+                _currentSudoku.FillCell(coords);
+                _sudokuUI.FillGrid(_currentSudoku.Grid);
             }
             else
             {
@@ -128,7 +114,7 @@ namespace antoinegleisberg.Sudoku
             List<Cell> HighlightSameNumber()
             {
                 Vector2Int coords = CellCoordinates(_selectedCell);
-                int selectedNumber = _currentGrid[coords.x, coords.y];
+                int selectedNumber = _currentSudoku.NumberAt(coords);
 
                 List<Cell> cellsToHighlight = new List<Cell>();
 
@@ -136,7 +122,7 @@ namespace antoinegleisberg.Sudoku
                 {
                     for (int j = 0; j < 9; j++)
                     {
-                        if (_currentGrid[i, j] == selectedNumber)
+                        if (_currentSudoku.Grid[i, j] == selectedNumber)
                         {
                             Cell cellToHighlight = CellAt(i, j);
                             cellsToHighlight.Add(cellToHighlight);
@@ -172,7 +158,7 @@ namespace antoinegleisberg.Sudoku
 
             Vector2Int coords = CellCoordinates(_selectedCell);
             List<Cell> cellsToHighlight;
-            if (_currentGrid[coords.x, coords.y] == 0)
+            if (_currentSudoku.Grid[coords.x, coords.y] == 0)
             {
                 cellsToHighlight = HightlightRowColBlock();
             }

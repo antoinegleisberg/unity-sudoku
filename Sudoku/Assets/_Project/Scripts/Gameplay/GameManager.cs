@@ -1,8 +1,8 @@
 using UnityEngine;
-using antoinegleisberg.Sudoku.GridGenerator;
+using antoinegleisberg.SudokuGame.SudokuGrid;
 
 
-namespace antoinegleisberg.Sudoku
+namespace antoinegleisberg.SudokuGame
 {
     public class GameManager : MonoBehaviour
     {
@@ -13,8 +13,8 @@ namespace antoinegleisberg.Sudoku
 
         private void Start()
         {
-            int[,] grid = GridUtilities.GeneratePuzzle(3, _gridSize);
-            _gridManager.SetCurrentGrid(grid);
+            Sudoku sudoku = new Sudoku(difficulty: 3);
+            _gridManager.SetCurrentSudoku(sudoku);
         }
     }
 }

@@ -1,7 +1,7 @@
 using NUnit.Framework;
-using antoinegleisberg.Sudoku.GridGenerator;
+using antoinegleisberg.SudokuGame.SudokuGrid;
 
-namespace antoinegleisberg.Sudoku.Editor.Tests
+namespace antoinegleisberg.SudokuGame.Editor.Tests
 {
     public class GridGenerationTests
     {
@@ -18,7 +18,7 @@ namespace antoinegleisberg.Sudoku.Editor.Tests
                 }
             }
 
-            int[,] generatedGrid = GridUtilities.GenerateEmptyGrid();
+            int[,] generatedGrid = SudokuGenerator.GenerateEmpty();
 
             Assert.AreEqual(generatedGrid, emptyGrid);
         }
@@ -39,7 +39,7 @@ namespace antoinegleisberg.Sudoku.Editor.Tests
                 {7, 0, 3, 0, 1, 8, 0, 0, 0 },
             };
 
-            Assert.IsTrue(GridUtilities.SolveGrid(grid));
+            Assert.IsTrue(SudokuSolver.Solve(grid, 3));
         }
 
         [Test]
@@ -58,7 +58,7 @@ namespace antoinegleisberg.Sudoku.Editor.Tests
                 {7, 0, 3, 0, 1, 8, 0, 0, 0 },
             };
 
-            Assert.IsTrue(GridUtilities.CountSolutions(grid) == 1);
+            Assert.IsTrue(SudokuSolver.CountSolutions(grid, 9) == 1);
         }
 
         [Test]
@@ -77,7 +77,7 @@ namespace antoinegleisberg.Sudoku.Editor.Tests
                 {0, 0, 0, 0, 0, 0, 0, 4, 0 },
             };
 
-            Assert.IsTrue(GridUtilities.SolveGrid(grid));
+            Assert.IsTrue(SudokuSolver.Solve(grid, 3));
         }
 
         [Test]
@@ -96,7 +96,7 @@ namespace antoinegleisberg.Sudoku.Editor.Tests
                 {0, 0, 0, 0, 0, 0, 0, 4, 0 },
             };
 
-            Assert.IsTrue(GridUtilities.CountSolutions(grid) == 1);
+            Assert.IsTrue(SudokuSolver.CountSolutions(grid, 9) == 1);
         }
 
 
@@ -116,7 +116,7 @@ namespace antoinegleisberg.Sudoku.Editor.Tests
                 {7, 3, 0, 0, 0, 0, 0, 0, 0 },
             };
 
-            Assert.IsTrue(GridUtilities.SolveGrid(grid));
+            Assert.IsTrue(SudokuSolver.Solve(grid, 3));
         }
 
         [Test]
@@ -135,7 +135,7 @@ namespace antoinegleisberg.Sudoku.Editor.Tests
                 {7, 3, 0, 0, 0, 0, 0, 0, 0 },
             };
 
-            Assert.IsTrue(GridUtilities.CountSolutions(grid) == 5);
+            Assert.IsTrue(SudokuSolver.CountSolutions(grid, 9) == 5);
         }
     }
 }

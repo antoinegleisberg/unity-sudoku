@@ -5076,8 +5076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28137e26f1a2ac44e845160fbf604f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gridUI: {fileID: 1748398667}
-  _sudokuGrid: {fileID: 1748398663}
+  _sudokuUI: {fileID: 1748398667}
 --- !u!1 &1865256211
 GameObject:
   m_ObjectHideFlags: 0

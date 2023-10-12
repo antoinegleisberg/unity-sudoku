@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace antoinegleisberg.Sudoku
+namespace antoinegleisberg.SudokuGame
 {
     public class NumberBar : MonoBehaviour
     {

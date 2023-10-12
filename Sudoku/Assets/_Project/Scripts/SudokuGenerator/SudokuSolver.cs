@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using antoinegleisberg.Tools;
 
-namespace antoinegleisberg.Sudoku.Generator
+namespace antoinegleisberg.SudokuGame.SudokuGrid
 {
     internal static class SudokuSolver
     {

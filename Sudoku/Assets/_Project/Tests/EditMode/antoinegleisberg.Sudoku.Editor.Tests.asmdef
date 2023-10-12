@@ -4,7 +4,7 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "antoinegleisberg.Sudoku.GridGenerator"
+        "antoinegleisberg.Sudoku.SudokuGrid"
     ],
     "includePlatforms": [
         "Editor"

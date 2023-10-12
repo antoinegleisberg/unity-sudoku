@@ -1,9 +1,8 @@
 {
-    "name": "antoinegleisberg.Sudoku",
-    "rootNamespace": "antoinegleisberg.Sudoku",
+    "name": "antoinegleisberg.Sudoku.SudokuGrid",
+    "rootNamespace": "antoinegleisberg.Sudoku.SudokuGrid",
     "references": [
-        "GUID:a5bdb7d186d7e464992fa1b0df60e074",
-        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+        "GUID:43e365aaef891904b8df65ad17d3678d"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

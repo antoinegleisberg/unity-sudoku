@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace antoinegleisberg.Sudoku
+namespace antoinegleisberg.SudokuGame
 {
     public class SudokuUI : MonoBehaviour
     {

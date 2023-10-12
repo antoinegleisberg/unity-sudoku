@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace antoinegleisberg.Sudoku
+namespace antoinegleisberg.SudokuGame
 {
     public class Cell : MonoBehaviour
     {

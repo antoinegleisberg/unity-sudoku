@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace antoinegleisberg.Sudoku
+namespace antoinegleisberg.SudokuGame
 {
     public class NumberButton : MonoBehaviour
     {
