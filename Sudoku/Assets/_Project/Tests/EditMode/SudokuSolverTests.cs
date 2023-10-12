@@ -9,7 +9,7 @@ namespace antoinegleisberg.SudokuGame.Editor.Tests
     public class SudokuSolverTests
     {
         [Test]
-        public void TestSudokuSolver_1()
+        public void TestSudokuSolver_Size9_1()
         {
             int[,] grid =
             {
@@ -28,7 +28,7 @@ namespace antoinegleisberg.SudokuGame.Editor.Tests
         }
 
         [Test]
-        public void TestSudokuSolver_2()
+        public void TestSudokuSolver_Size9_2()
         {
             int[,] grid =
             {
@@ -47,7 +47,7 @@ namespace antoinegleisberg.SudokuGame.Editor.Tests
         }
 
         [Test]
-        public void TestSudokuSolver_3()
+        public void TestSudokuSolver_Size9_3()
         {
             int[,] grid =
             {
@@ -66,7 +66,39 @@ namespace antoinegleisberg.SudokuGame.Editor.Tests
         }
 
         [Test]
-        public void TestSolutionCounter_1()
+        public void TestSudokuSolver_Size6_1()
+        {
+            int[,] grid =
+            {
+                {6, 2, 0, 5, 0, 3 },
+                {0, 0, 0, 0, 0, 0 },
+                {5, 0, 0, 0, 3, 0 },
+                {0, 6, 0, 0, 2, 0 },
+                {0, 0, 0, 3, 4, 6 },
+                {3, 0, 6, 0, 0, 0 }
+            };
+
+            Assert.IsTrue(SudokuSolver.Solve(grid, 3));
+        }
+
+        [Test]
+        public void TestSudokuSolver_Size6_2()
+        {
+            int[,] grid =
+            {
+                {6, 2, 0, 5, 0, 3 },
+                {0, 0, 0, 6, 0, 0 },
+                {5, 0, 0, 0, 3, 0 },
+                {0, 6, 0, 0, 2, 0 },
+                {0, 0, 0, 3, 4, 6 },
+                {3, 0, 6, 0, 0, 0 }
+            };
+
+            Assert.IsFalse(SudokuSolver.Solve(grid, 3));
+        }
+
+        [Test]
+        public void TestSolutionCounter_Size9_1()
         {
             int[,] grid =
             {
@@ -85,7 +117,7 @@ namespace antoinegleisberg.SudokuGame.Editor.Tests
         }
 
         [Test]
-        public void TestSolutionCounter_2()
+        public void TestSolutionCounter_Size9_2()
         {
             int[,] grid =
             {
@@ -104,7 +136,7 @@ namespace antoinegleisberg.SudokuGame.Editor.Tests
         }
         
         [Test]
-        public void TestSolutionCounter_3()
+        public void TestSolutionCounter_Size9_3()
         {
             int[,] grid =
             {
@@ -123,7 +155,7 @@ namespace antoinegleisberg.SudokuGame.Editor.Tests
         }
 
         [Test]
-        public void TestSolutionCounter_4()
+        public void TestSolutionCounter_Size9_4()
         {
             int[,] grid =
             {
@@ -139,6 +171,38 @@ namespace antoinegleisberg.SudokuGame.Editor.Tests
             };
 
             Assert.AreEqual(SudokuSolver.CountSolutions(grid, 3), 5);
+        }
+
+        [Test]
+        public void TestSolutionCounter_Size6_1()
+        {
+            int[,] grid =
+            {
+                {6, 2, 0, 5, 0, 3 },
+                {0, 0, 0, 0, 0, 0 },
+                {5, 0, 0, 0, 3, 0 },
+                {0, 6, 0, 0, 2, 0 },
+                {0, 0, 0, 3, 4, 6 },
+                {3, 0, 6, 0, 0, 0 }
+            };
+            
+            Assert.AreEqual(SudokuSolver.CountSolutions(grid, 3), 1);
+        }
+
+        [Test]
+        public void TestSolutionCounter_Size6_2()
+        {
+            int[,] grid =
+            {
+                {1, 3, 0, 4, 0, 0 },
+                {0, 0, 6, 5, 0, 0 },
+                {0, 5, 1, 0, 0, 0 },
+                {0, 0, 2, 0, 0, 0 },
+                {0, 0, 0, 6, 4, 0 },
+                {0, 1, 0, 0, 0, 0 }
+            };
+
+            Assert.AreEqual(SudokuSolver.CountSolutions(grid, 3), 4);
         }
     }
 }
