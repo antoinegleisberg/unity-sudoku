@@ -43,7 +43,7 @@ namespace antoinegleisberg.SudokuGame.Editor.Tests
                 {7, 0, 3, 0, 1, 8, 0, 0, 0 },
             };
 
-            Assert.IsTrue(SudokuSolver.CountSolutions(grid, 9) == 1);
+            Assert.AreEqual(SudokuSolver.CountSolutions(grid, 9), 1);
         }
 
         [Test]
@@ -81,7 +81,7 @@ namespace antoinegleisberg.SudokuGame.Editor.Tests
                 {0, 0, 0, 0, 0, 0, 0, 4, 0 },
             };
 
-            Assert.IsTrue(SudokuSolver.CountSolutions(grid, 9) == 1);
+            Assert.AreEqual(SudokuSolver.CountSolutions(grid, 9), 1);
         }
 
 
@@ -120,7 +120,7 @@ namespace antoinegleisberg.SudokuGame.Editor.Tests
                 {7, 3, 0, 0, 0, 0, 0, 0, 0 },
             };
 
-            Assert.IsTrue(SudokuSolver.CountSolutions(grid, 9) == 5);
+            Assert.AreEqual(SudokuSolver.CountSolutions(grid, 9), 5);
         }
     }
 }

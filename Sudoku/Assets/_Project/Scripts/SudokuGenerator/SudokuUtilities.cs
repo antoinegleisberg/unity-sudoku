@@ -45,9 +45,9 @@ namespace antoinegleisberg.SudokuGame.SudokuGrid
             int blockHeight = SIZE / blockWidth;
             List<int> block = new List<int>();
 
-            for (int i = 0; i < blockWidth; i++)
+            for (int i = 0; i < blockHeight; i++)
             {
-                for (int j = 0; j < blockHeight; j++)
+                for (int j = 0; j < blockWidth; j++)
                 {
                     int row = blockHeight * rowIndex + i;
                     int col = blockWidth * colIndex + j;

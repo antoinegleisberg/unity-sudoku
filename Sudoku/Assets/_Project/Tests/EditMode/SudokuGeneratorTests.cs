@@ -156,7 +156,7 @@ namespace antoinegleisberg.SudokuGame.Editor.Tests
                 }
             }
 
-            Assert.AreEqual(counter, 20);
+            Assert.AreEqual(counter, 15);
         }
 
         [Test]
@@ -204,11 +204,11 @@ namespace antoinegleisberg.SudokuGame.Editor.Tests
 
             bool isValid = true;
 
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 6; i++)
             {
                 isValid = isValid && SudokuUtilities.RowIsValid(grid, i);
                 isValid = isValid && SudokuUtilities.ColumnIsValid(grid, i);
-                isValid = isValid && SudokuUtilities.BlockIsValid(grid, i / 3, i % 3, 3);
+                isValid = isValid && SudokuUtilities.BlockIsValid(grid, i / 2, i % 2, 3);
             }
 
             Assert.IsTrue(isValid);
