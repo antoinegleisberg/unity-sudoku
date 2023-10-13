@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 namespace antoinegleisberg.SudokuGame.GameplayUI
 {
@@ -22,35 +21,35 @@ namespace antoinegleisberg.SudokuGame.GameplayUI
         {
             Cell[,] cells = new Cell[gridSize, gridSize];
 
-            int SIZE = gridSize;
-            int NROWS = blockWidth;
-            int NCOLS = SIZE / NROWS;
-            int N_BLOCK_ROWS = NCOLS;
-            int N_BLOCK_COLS = NROWS;
-            int BLOCK_HEIGHT = NCOLS;
-            int BLOCK_WIDTH = NROWS;
+            int SIZE = gridSize; // 6
+            int NROWS = blockWidth; // 3
+            int NCOLS = SIZE / NROWS; // 2
+            int N_BLOCK_ROWS = NCOLS; // 2
+            int N_BLOCK_COLS = NROWS; // 3
+            int BLOCK_HEIGHT = NCOLS; // 2
+            int BLOCK_WIDTH = NROWS; // 3
 
             Transform grid = Instantiate(_gridPrefab, _sudokuUIContainer);
             
-            for (int i = 0; i < NCOLS; i++)
+            for (int columnIndex = 0; columnIndex < NCOLS; columnIndex++)
             {
                 Transform column = Instantiate(_columnPrefab, grid);
 
-                for (int j = 0; j < NROWS; j++)
+                for (int rowIndex = 0; rowIndex < NROWS; rowIndex++)
                 {
                     Transform block = Instantiate(_blockPrefab, column);
                     Transform subgridContainer = block.GetChild(0);
 
-                    for (int block_i = 0; block_i < N_BLOCK_COLS; block_i++)
+                    for (int inblockColumnIndex = 0; inblockColumnIndex < N_BLOCK_COLS; inblockColumnIndex++)
                     {
                         Transform blockColumn = Instantiate(_blockColumnPrefab, subgridContainer);
 
-                        for (int block_j = 0; block_j < N_BLOCK_ROWS; block_j++)
+                        for (int inblockRowIndex = 0; inblockRowIndex < N_BLOCK_ROWS; inblockRowIndex++)
                         {
                             Transform cell = Instantiate(_cellPrefab, blockColumn);
 
-                            int row = j * BLOCK_HEIGHT + block_j;
-                            int col = i * BLOCK_WIDTH + block_i;
+                            int row = rowIndex * BLOCK_HEIGHT + inblockRowIndex;
+                            int col = columnIndex * BLOCK_WIDTH + inblockColumnIndex;
 
                             cells[row, col] = cell.GetComponent<Cell>();
                         }

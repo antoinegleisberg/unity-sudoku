@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.antoinegleisberg.time": {
+      "version": "file:C:/Users/antoi/Documents/Informatique/Projets/Unity/UnityPackages/Time",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.antoinegleisberg.tools": {
       "version": "file:C:/Users/antoi/Documents/Informatique/Projets/Unity/UnityPackages/Tools",
       "depth": 0,

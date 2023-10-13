@@ -13,9 +13,11 @@ namespace antoinegleisberg.SudokuGame.GameplayUI
 
         public void FillGrid(int[,] grid)
         {
-            for (int row = 0; row < grid.GetLength(0) ; row++)
+            int SIZE = grid.GetLength(0);
+
+            for (int row = 0; row < SIZE; row++)
             {
-                for (int col = 0; col < grid.GetLength(1); col ++)
+                for (int col = 0; col < SIZE; col ++)
                 {
                     if (grid[row, col] == 0)
                     {

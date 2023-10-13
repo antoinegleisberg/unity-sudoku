@@ -10,6 +10,8 @@ namespace antoinegleisberg.SudokuGame.GameplayUI
         [SerializeField] private SudokuUIBuilder _sudokuUIBuilder;
         [SerializeField] private NumberBar _numberBar;
         [SerializeField] private CellHighlighter _cellHighlighter;
+        [SerializeField] private Timer _timer;
+        [SerializeField] private ErrorCounter _errorCounter;
         private SudokuUI _sudokuUI;
         private Sudoku _currentSudoku;
         
@@ -41,6 +43,8 @@ namespace antoinegleisberg.SudokuGame.GameplayUI
             _sudokuUI = FindObjectOfType<SudokuUI>();
             _sudokuUI.FillGrid(sudoku.Grid);
             _numberBar.Init(sudoku.Size);
+            _timer.StartTimer();
+            _errorCounter.ResetErrors();
         }
 
         internal Cell CellAt(int x, int y)
@@ -82,7 +86,7 @@ namespace antoinegleisberg.SudokuGame.GameplayUI
             }
             else
             {
-                Debug.Log("Not the right number !!");
+                _errorCounter.IncreaseErrorCounter();
             }
         }
 

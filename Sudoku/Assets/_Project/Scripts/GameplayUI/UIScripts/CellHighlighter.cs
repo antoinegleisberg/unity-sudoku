@@ -33,7 +33,7 @@ namespace antoinegleisberg.SudokuGame.GameplayUI
         {
             int SIZE = sudoku.Size;
 
-            List<Cell> HighlightSameNumber()
+            List<Cell> GetCellsWithSameNumber()
             {
                 Vector2Int coords = _sudokuManager.CellCoordinates(selectedCell);
                 int selectedNumber = sudoku.NumberAt(coords);
@@ -55,14 +55,14 @@ namespace antoinegleisberg.SudokuGame.GameplayUI
                 return cellsToHighlight;
             }
 
-            List<Cell> HightlightRowColBlock()
+            List<Cell> GetCellsInRowColBlock()
             {
                 int BLOCK_WIDTH = sudoku.BlockWidth;
                 int BLOCK_HEIGHT = sudoku.BlockHeight;
 
                 Vector2Int coords = _sudokuManager.CellCoordinates(selectedCell);
-                int blockX = coords.x / BLOCK_WIDTH;
-                int blockY = coords.y / BLOCK_HEIGHT;
+                int blockRowIndex = coords.x / BLOCK_HEIGHT;
+                int blockColIndex = coords.y / BLOCK_WIDTH;
 
                 List<Cell> cellsToHighlight = new List<Cell>();
 
@@ -74,7 +74,9 @@ namespace antoinegleisberg.SudokuGame.GameplayUI
                     cellToHightlight = _sudokuManager.CellAt(coords.x, i);
                     cellsToHighlight.Add(cellToHightlight);
 
-                    cellToHightlight = _sudokuManager.CellAt(BLOCK_WIDTH * blockX + i / BLOCK_WIDTH, BLOCK_HEIGHT * blockY + i % BLOCK_HEIGHT);
+                    int row = blockRowIndex * BLOCK_HEIGHT + i / BLOCK_WIDTH;
+                    int col = blockColIndex * BLOCK_WIDTH + i % BLOCK_WIDTH;
+                    cellToHightlight = _sudokuManager.CellAt(row, col);
                     cellsToHighlight.Add(cellToHightlight);
                 }
 
@@ -84,11 +86,11 @@ namespace antoinegleisberg.SudokuGame.GameplayUI
             Vector2Int coords = _sudokuManager.CellCoordinates(selectedCell);
             if (sudoku.Grid[coords.x, coords.y] == 0)
             {
-                return HightlightRowColBlock();
+                return GetCellsInRowColBlock();
             }
             else
             {
-                return HighlightSameNumber();
+                return GetCellsWithSameNumber();
             }
         }
         

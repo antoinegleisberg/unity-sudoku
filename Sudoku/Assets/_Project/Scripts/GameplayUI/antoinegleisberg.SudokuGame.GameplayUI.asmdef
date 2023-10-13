@@ -3,7 +3,8 @@
     "rootNamespace": "antoinegleisberg.SudokuGame.GameplayUI",
     "references": [
         "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:a5bdb7d186d7e464992fa1b0df60e074"
+        "GUID:a5bdb7d186d7e464992fa1b0df60e074",
+        "GUID:6267a36d2a6f4cb4f8657187677b06fc"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

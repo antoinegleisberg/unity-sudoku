@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.antoinegleisberg.time": "file:C:/Users/antoi/Documents/Informatique/Projets/Unity/UnityPackages/Time",
     "com.antoinegleisberg.tools": "file:C:/Users/antoi/Documents/Informatique/Projets/Unity/UnityPackages/Tools",
     "com.antoinegleisberg.types": "file:C:/Users/antoi/Documents/Informatique/Projets/Unity/UnityPackages/Types",
     "com.unity.collab-proxy": "2.0.1",
