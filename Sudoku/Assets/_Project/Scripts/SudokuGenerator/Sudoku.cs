@@ -10,36 +10,36 @@ namespace antoinegleisberg.SudokuGame.SudokuGrid
     /// </summary>
     public class Sudoku
     {
-        private int size;
-        private int blockWidth;
-        private int[,] grid;
-        private int[,] solution;
+        private int _size;
+        private int _blockWidth;
+        private int[,] _grid;
+        private int[,] _solution;
 
-        public int Size { get { return size; } }
-        public int BlockWidth { get { return blockWidth; } }
-        public int BlockHeight { get { return size / blockWidth; } }
-        public int[,] Grid { get { return grid; } }
-        public int[,] Solution { get { return solution; } }
+        public int Size { get { return _size; } }
+        public int BlockWidth { get { return _blockWidth; } }
+        public int BlockHeight { get { return _size / _blockWidth; } }
+        public int[,] Grid { get { return _grid; } }
+        public int[,] Solution { get { return _solution; } }
 
         public Sudoku(int size = 9, int blockWidth = 3, int difficulty = 1)
         {
-            this.size = size;
-            this.blockWidth = blockWidth;
+            _size = size;
+            _blockWidth = blockWidth;
 
             difficulty = Mathf.Clamp(difficulty, 1, 5);
             int missingDigits = 10 + 3 * difficulty;
-            grid = SudokuGenerator.GenerateSudokuWithUniqueSolution(size, blockWidth, missingDigits);
+            _grid = SudokuGenerator.GenerateSudokuWithUniqueSolution(size, blockWidth, missingDigits);
             
-            solution = new int[size, size];
+            _solution = new int[size, size];
             for (int i = 0; i < size; i++)
             {
                 for (int j = 0; j < size; j++)
                 {
-                    solution[i, j] = grid[i, j];
+                    _solution[i, j] = _grid[i, j];
                 }
             }
             
-            SudokuSolver.Solve(solution, blockWidth);
+            SudokuSolver.Solve(_solution, blockWidth);
         }
 
         public int NumberAt(int x, int y) => Grid[x, y];

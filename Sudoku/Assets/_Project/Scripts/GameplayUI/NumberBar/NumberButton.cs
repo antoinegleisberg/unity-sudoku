@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-namespace antoinegleisberg.SudokuGame
+namespace antoinegleisberg.SudokuGame.GameplayUI
 {
-    public class NumberButton : MonoBehaviour
+    internal class NumberButton : MonoBehaviour
     {
         public event Action<NumberButton> OnButtonPressed;
 

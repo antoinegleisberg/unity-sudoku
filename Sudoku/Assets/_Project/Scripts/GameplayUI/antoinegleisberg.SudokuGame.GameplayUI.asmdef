@@ -1,10 +1,9 @@
 {
-    "name": "antoinegleisberg.SudokuGame",
-    "rootNamespace": "antoinegleisberg.SudokuGame",
+    "name": "antoinegleisberg.SudokuGame.GameplayUI",
+    "rootNamespace": "antoinegleisberg.SudokuGame.GameplayUI",
     "references": [
-        "GUID:a5bdb7d186d7e464992fa1b0df60e074",
         "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:5d75cfe648956e148af7b06ac0d8270c"
+        "GUID:a5bdb7d186d7e464992fa1b0df60e074"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

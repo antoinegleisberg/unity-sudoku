@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-namespace antoinegleisberg.SudokuGame
+namespace antoinegleisberg.SudokuGame.GameplayUI
 {
-    public class EventSystem : MonoBehaviour
+    internal class EventSystem : MonoBehaviour
     {
         public static EventSystem Instance { get; private set; }
 

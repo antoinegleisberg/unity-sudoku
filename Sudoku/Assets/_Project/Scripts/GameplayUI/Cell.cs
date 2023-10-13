@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace antoinegleisberg.SudokuGame
+namespace antoinegleisberg.SudokuGame.GameplayUI
 {
-    public class Cell : MonoBehaviour
+    internal class Cell : MonoBehaviour
     {
         [SerializeField] private Color _selectedColor;
         [SerializeField] private Color _unselectedColor;
