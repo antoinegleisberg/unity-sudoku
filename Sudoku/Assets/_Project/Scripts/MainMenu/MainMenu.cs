@@ -1,5 +1,5 @@
 using System;
-using Unity.VisualScripting.YamlDotNet.Core.Tokens;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +11,16 @@ namespace antoinegleisberg.SudokuGame
         [SerializeField] private Slider _blockSizeSlider;
         [SerializeField] private Slider _difficultySlider;
 
+        [SerializeField] private TextMeshProUGUI _gridSizeText;
+        [SerializeField] private TextMeshProUGUI _blockSizeText;
+        [SerializeField] private TextMeshProUGUI _difficultyText;
+
         public event Action<GameSettings> OnPlayButtonClicked;
+
+        private void Start()
+        {
+            UpdateTexts();
+        }
 
         public void ClickPlayButton()
         {
@@ -33,6 +42,14 @@ namespace antoinegleisberg.SudokuGame
                 _gridSizeSlider.value += 1;
                 blockHeight = _gridSizeSlider.value / _blockSizeSlider.value;
             }
+            UpdateTexts();
+        }
+
+        private void UpdateTexts()
+        {
+            _gridSizeText.text = $"Sudoku Size: {_gridSizeSlider.value}";
+            _blockSizeText.text = $"Block Width: {_blockSizeSlider.value}";
+            _difficultyText.text = $"Difficulty: {_difficultySlider.value}";
         }
     }
 

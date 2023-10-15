@@ -26,9 +26,9 @@ namespace antoinegleisberg.SudokuGame
         private void StartGame(GameSettings gameSettings)
         {
             Sudoku sudoku = new Sudoku(gameSettings.sudokuSize, gameSettings.blockWidth, gameSettings.difficulty);
-            _sudokuManager.SetCurrentSudoku(sudoku);
             _sudokuPanel.gameObject.SetActive(true);
             _mainMenuPanel.gameObject.SetActive(false);
+            _sudokuManager.SetCurrentSudoku(sudoku);
         }
     }
 }

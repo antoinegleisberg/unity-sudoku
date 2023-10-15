@@ -83,12 +83,12 @@ namespace antoinegleisberg.SudokuGame.SudokuGrid
             int blockRowIndex = row / BLOCK_HEIGHT;
             int blockColIndex = col / BLOCK_WIDTH;
 
-            for (int i = 0; i < BLOCK_HEIGHT; i++)
+            for (int cellRowInBlockIndex = 0; cellRowInBlockIndex < BLOCK_HEIGHT; cellRowInBlockIndex++)
             {
-                int cellRowIndex = BLOCK_HEIGHT * blockRowIndex + i;
-                for (int j = 0; j < BLOCK_WIDTH; j++)
+                int cellRowIndex = BLOCK_HEIGHT * blockRowIndex + cellRowInBlockIndex;
+                for (int cellColInBlockIndex = 0; cellColInBlockIndex < BLOCK_WIDTH; cellColInBlockIndex++)
                 {
-                    int cellColIndex = BLOCK_WIDTH * blockColIndex + j;
+                    int cellColIndex = BLOCK_WIDTH * blockColIndex + cellColInBlockIndex;
                     possibleNumbers.Remove(grid[cellRowIndex, cellColIndex]);
                 }
             }
